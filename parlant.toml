@@ -1,0 +1,2 @@
+[parlant]
+modules = [ "mongo",]

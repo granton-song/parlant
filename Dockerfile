@@ -8,15 +8,15 @@ ENV PYTHONPATH=/app/src
 ENV PARLANT_HOME=/app/data
 
 RUN apt-get update && apt-get install -y g++ && rm -rf /var/lib/apt/lists/*
-RUN pip install poetry==$POETRY_VERSION
+RUN pip install poetry==$POETRY_VERSION -i https://mirrors.aliyun.com/pypi/simple/
 
 COPY pyproject.toml poetry.lock /app/
 COPY src /app/src
 WORKDIR /app
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-root --only main
+    && poetry install --no-interaction --no-ansi --only main --extras "mongo" --extras "litellm"
 
 # Expose the port your app runs on
-EXPOSE 8000
+EXPOSE 8800
 
-CMD ["poetry", "run", "parlant-server"]
+CMD ["python", "/app/src/parlant/bin/server.py", "run", "--litellm"]

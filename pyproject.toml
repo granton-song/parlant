@@ -105,6 +105,11 @@ litellm = ["litellm", "torch", "transformers"]
 mongo = ["pymongo"]
 
 
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]

@@ -10,43 +10,27 @@
   // "forwardPorts": [],
 
   // 👇 Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "(cd /workspaces/parlant* && git config --global --add safe.directory $PWD && python ./initialize_repo.py)",
+  // "postCreateCommand": "(cd /workspaces/parlant* && git config --global --add safe.directory $PWD && python ./initialize_repo.py)",
 
   // 👇 Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
-        "alexkrechik.cucumberautocomplete",
         "charliermarsh.ruff",
-        "github.remotehub",
-        "github.vscode-github-actions",
-        "GitHub.vscode-pull-request-github",
-        "hbenl.vscode-test-explorer",
-        "matangover.mypy",
         "ms-azuretools.vscode-docker",
         "ms-python.debugpy",
         "ms-python.python",
-        "ms-python.vscode-pylance",
-        "mutantdino.resourcemonitor",
-        "njpwerner.autodocstring",
-        "tamasfe.even-better-toml",
-        "zeshuaro.vscode-python-poetry",
-        "streetsidesoftware.code-spell-checker"
+        "ms-python.vscode-pylance"
       ]
     }
   },
   // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
   "features": {
-    "ghcr.io/devcontainers-extra/features/mypy:2": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers-extra/features/poetry:2": {
-      "version": "latest"
-    },
-    "node": {
-        "version": "lts",
-        "nodeGypDependencies": true
-    }
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers-extra/features/poetry:2": {},
+ 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {}
   },
 
   "mounts": []
